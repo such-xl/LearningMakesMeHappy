@@ -9,7 +9,6 @@ version:5.0
 # 主程序
 def main():
     USD_RMB = 6.77
-    currency_converter_lambda = lambda x, r: x * r
     while 1:
         p_cur = input('输入带单位的金额或输入n退出:')
         if p_cur == 'n' or p_cur == 'N':
@@ -18,14 +17,16 @@ def main():
         unit = p_cur[-3:]  # 截取单位
         p_val = eval(p_cur[:-3])  # 截取数值
         if unit == 'CNY':
-            t_val = currency_converter_lambda(p_val, 1 / USD_RMB)
-            t_cur = str(t_val) + "USD"
+            ex_rate = 1/USD_RMB;
+            t_unit='USD'
         elif unit == 'USD':
-            t_val = currency_converter_lambda(p_val, USD_RMB)
-            t_cur = str(t_val) + "CNY"
+            ex_rate = USD_RMB;
+            t_unit='CNY'
         else:
             print("输入错误,请从新输入:\n")
             continue
+        currency_converter_lambda = lambda x : x * ex_rate#定义lambda函数
+        t_cur = str(currency_converter_lambda(p_val))+t_unit
         print(p_cur + "->" + t_cur)
 
 # 调用mian函数
