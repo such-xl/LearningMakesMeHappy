@@ -37,7 +37,7 @@ print('arr1:\n',arr1)
 arr2 = arr1.ravel()
 print('arr2\n',arr2)
 arr3 = arr1.flatten()
-print('arr6\n',arr3)
+print('arr3\n',arr3)
 
 #2-25 两个数组合并
 arr1 = np.arange(6).reshape(3,2)
