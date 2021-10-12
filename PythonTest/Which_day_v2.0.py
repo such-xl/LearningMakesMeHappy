@@ -1,10 +1,17 @@
 """
     作者:夏乐
-    日期:2021/10/8
-    版本:1.0
+    日期:2021/10/12
+    版本:2.0
     功能:从键盘输入一个日期，判断是这一年的第几天
+    2.0新增:用列表实现,并将判断是否是闰年封装成函数
 """
 import datetime  # 导入datetime库
+
+
+def isleapyear(year):
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+        return True
+    return False
 
 
 def main():
@@ -21,13 +28,13 @@ def main():
     day = date_after.day
 
     # 计算日期之前月份的所有天数
-    month_day_tuple = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
-    days = sum(month_day_tuple[:month - 1]) + day
+    # 定义一个列表
+    month_day_list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     # 判断是否为闰年
-    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
-        if month > 2:
-            days = days + 1
+    if isleapyear(year):
+        month_day_list[1] = 29
+    days = sum(month_day_list[:month - 1]) + day
     print('这是{}年的第{}天'.format(year, days))
 
 
