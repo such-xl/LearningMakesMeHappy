@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 env = gym.make('CliffWalking-v0')
 
+'''
 class Sarsa:
     def __init__(self,ncol,nrow,epsilon,alpha,gamma,n_action=4) -> None:
         self.Q_table = np.zeros((nrow*ncol,n_action)) # 上右下左
@@ -59,3 +60,21 @@ for i in range(nrow):
 plt.plot(range(0,eposide),return_list)
 plt.show()
 np.save(f'Q_table_{num_episodes}',agent.Q_table)
+
+
+'''
+
+import gymnasium as gym
+import numpy as np
+
+# 使用训练好的策略游戏
+env1 = gym.make('CliffWalking-v0',render_mode="human")
+s = env1.reset()[0]
+done = False
+q_table = np.load("Q_table_5000.npy")
+print(q_table)
+while not done:
+    a = np.argmax(q_table[s])
+    s1,r,done,truncated,info = env1.step(a)
+    s = s1
+    env1.render()
