@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 
 # 目标函数，这里以二维空间的某个函数为例
 def objective_function(x):
-    return x * np.sin(10 * np.pi * x) + 1
     return 10.0 * np.sin(5.0*x) + 7.0 * np.abs(x-5) + 10
 def metrospolis(current_eval,next_eval,temp):
     #求最小值
@@ -77,6 +76,7 @@ plt.title('temperatures')
 plt.plot(temperatures)
 
 plt.subplot(312)
+plt.title('6720230789   xiale')
 x = np.linspace(bounds[0],bounds[1],4000)
 y = objective_function(x)
 plt.scatter(best_x,best_eval,s=35,c='red',alpha=.7,label='best solution')

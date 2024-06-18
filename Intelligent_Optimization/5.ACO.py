@@ -151,7 +151,7 @@ class TSP(object):
         for ant in self.ants:
             ant._clean_data()
         self.best_ant = Ant(-1)                         # 初始最优解
-        self.iter = 100                                  # 初始化迭代次数 
+        self.iter = 1000                                # 初始化迭代次数 
         
     # 开始搜索
     def search_path(self):
@@ -174,8 +174,9 @@ print(len(tsp.best_ant.path))
 # 画图
 plt.figure()
 plt.scatter(distance_x,distance_y)
+plt.title('')
 x = np.array(distance_x)[tsp.best_ant.path]
 y = np.array(distance_y)[tsp.best_ant.path]
 plt.plot(x,y)
-plt.title(f'best router totle distance is {tsp.best_ant.total_distance}')
+plt.title(f'best router totle distance is {tsp.best_ant.total_distance} \n6720230789 xiale')
 plt.show()

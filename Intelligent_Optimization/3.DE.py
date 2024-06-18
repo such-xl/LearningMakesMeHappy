@@ -65,7 +65,8 @@ class Population:
         plt.figure()
         plt.subplot(1,2,1)
         plt.plot(x, y, label='f(x) = x sin(10πx) + 1')
-
+        
+        plt.title('6720230789   xiale')
         plt.scatter(self.best_x,self.best_y,s=35,c='red',alpha=.7,label='best solution')
         plt.legend(loc='best')
         plt.subplot(1,2,2)

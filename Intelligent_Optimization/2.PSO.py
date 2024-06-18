@@ -93,13 +93,12 @@ y = object_function(x)
 
 plt.figure()
 plt.subplot(1,2,1)
-10.0 * np.sin(5.0*x) + 7.0 * np.abs(x-5) + 10
+plt.title('6720230789 xiale')
 plt.plot(x, y, label='f(x) = 10sin(5x) + 7|x-5|')
 plt.scatter(best_x,best_y,s=35,c='red',alpha=.7,label='best solution')
 plt.legend(loc='best')
 plt.subplot(1,2,2)
 plt.plot(range(len(fitness_value_list)),fitness_value_list)
-
 plt.xlabel('item_num')
 plt.ylabel('g_fitness')
 plt.show()
