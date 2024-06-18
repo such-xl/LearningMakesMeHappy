@@ -151,7 +151,7 @@ class TSP(object):
         for ant in self.ants:
             ant._clean_data()
         self.best_ant = Ant(-1)                         # 初始最优解
-        self.iter = 1000                                # 初始化迭代次数 
+        self.iter = 100000                               # 初始化迭代次数 
         
     # 开始搜索
     def search_path(self):
