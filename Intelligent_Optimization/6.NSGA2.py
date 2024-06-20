@@ -406,9 +406,8 @@ def dominate(y1, y2):
 
 if __name__=="__main__":
     #------------------------参数输入--------------------------
-    POP_SIZE=150#种群规模
-    # fitness_function_name= 'DTLZ1'#测试函数DTLZ2
-    fitness_function_name= 'ZDT1'#测试函数DTLZ2
+    POP_SIZE=200#种群规模
+    fitness_function_name= 'DTLZ2'#测试函数DTLZ2
     F_NUM, X_COUNT, X_min_array, X_max_array, fun_txt=fitness_fun_infor(fitness_function_name)
     MAX_GEN=10#最大进化代数
     CROSSOVER_PROBABILITY=1#交叉概率
@@ -452,7 +451,9 @@ if __name__=="__main__":
             y.append(current_population[i].fitness[1])
             z.append(current_population[i].fitness[2])
         fig = plt.figure()
+        plt.title('test func: DTLZ1\n6720230789 xiale')
         ax = Axes3D(fig)
+        fig.add_axes(ax)
         ax.scatter(x,y,z,c='r')
         plt.show()
 
