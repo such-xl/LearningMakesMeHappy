@@ -68,13 +68,12 @@ class ACO:
             # 更新t值，根据当前的信息素更新下一时刻的信息素
             t[i] = (1 - rou) * t[i] + Q * self.fitness(self.pop_x[i])
             # 更新全局最优值
-            print('aa',self.g_best)
             if self.fitness(self.pop_x[i]) < self.fitness(self.g_best):
                 self.g_best = self.pop_x[i]
         t_min = np.min(t)#对信息素序列进行检索得到最大值
         return t_min, t
  
-    def main(self):#运行的主程序
+    def run(self):#运行的主程序
         popobj = []#记录最大值
         best = np.zeros((1, self.var_num))[0]#记录最大值的位置
         for gen in range(1, self.NGEN + 1):#迭代循环
@@ -84,22 +83,23 @@ class ACO:
             else:#第二代之后循环
                tmax, t = self.update_operator(gen, t, tmax)
             popobj.append(self.fitness(self.g_best))#每一代的最大值都记录下
-            print('############ Generation {} ############'.format(str(gen)))#打印每代信息
-            print(self.g_best)
-            print(self.fitness(self.g_best))
+            # print('############ Generation {} ############'.format(str(gen)))#打印每代信息
+            # print(self.g_best)
+            # print(self.fitness(self.g_best))
             if self.fitness(self.g_best) < self.fitness(best):
                 best = self.g_best.copy()
-            print('最好的位置：{}'.format(best))
-            print('最小的函数值：{}'.format(self.fitness(best)))
-        print("---- End of (successful) Searching ----")
+            
+            #print('最好的位置：{}'.format(best))
+            #print('最小的函数值：{}'.format(self.fitness(best)))
+        #print("---- End of (successful) Searching ----")
  
-        plt.figure()
-        plt.title("Figure1")
-        plt.xlabel("iterators", size=14)
-        plt.ylabel("fitness", size=14)
-        t = [t for t in range(1, self.NGEN + 1)]
-        plt.plot(t, popobj, color='b', linewidth=2)
-        plt.show()
+        # plt.figure()
+        # plt.title("Figure1")
+        # plt.xlabel("iterators", size=14)
+        # plt.ylabel("fitness", size=14)
+        # t = [t for t in range(1, self.NGEN + 1)]
+        # plt.plot(t, popobj, color='b', linewidth=2)
+        # plt.show()
  
  
 if __name__ == '__main__':
